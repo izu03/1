@@ -3,17 +3,17 @@ using namespace std;
 #define max 100
 int arr[100][100];int n;
 int visited[max]={0};
-int q[max];int top=-1;
-void bfs(int start){
+int st[max];int top=-1;
+void dfs(int start){
     visited[start]=1;
-    q[++top]=start;
+    st[++top]=start;
     while(top!=-1){
-        int current = q[top--];
+        int current = st[top--];
         cout<<current<<" ";
         for(int i=0;i<n;i++){
             if(arr[current][i] && !visited[i]){
                 visited[i]=1;
-                q[++top]=i;
+                st[++top]=i;
             }
         }
     }
@@ -28,6 +28,6 @@ int main(){
     }
     int start;
     cout<<"enter staring element;";cin>>start;
-    bfs(start);
+    dfs(start);
     return 0;
 }
