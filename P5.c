@@ -4,17 +4,17 @@ using namespace std;
 int adj[max][max];
 void bfs(int n,int start){
     int visited[n]={0};
-    int queue[n];
+    int q[n];
     int front=0;int rear=-1;
     visited[start]=1;
-    queue[++rear]=start;
+    q[++rear]=start;
     while(front<=rear){
-        int current=queue[front++];
+        int current=q[front++];
         cout<<current<<" ";
         for(int i=0;i<n;i++){
             if(adj[current][i] && !visited[i]){
                 visited[i]=1;
-                queue[++rear]=i;
+                q[++rear]=i;
             }
         }
     }
